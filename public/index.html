@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f0">
+    <meta name="description" content="Descubre el catálogo de muebles y diseño de gMobidec.">
+    <title>Catálogo — gMobidec</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="gMobidec, inicio">
+        <span class="brand-mark">g<span>.</span></span>
+        <span class="brand-name">mobidec<small>ESPACIOS CON INTENCIÓN</small></span>
+      </a>
+      <nav class="header-nav" aria-label="Navegación principal">
+        <a class="nav-link active" href="#catalogo">Catálogo</a>
+        <a class="nav-link" href="#nosotros">Nosotros</a>
+      </nav>
+      <button class="admin-open" id="adminOpen" type="button"><span aria-hidden="true">⌘</span> Administración</button>
+    </header>
+
+    <main>
+      <section class="hero" id="nosotros">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> OBJETOS PARA VIVIR MEJOR</p>
+          <h1>Diseño que<br><em>se siente</em> en casa.</h1>
+          <p class="hero-description">Una selección de piezas para crear espacios que hablan de ti. Funcionalidad, carácter y diseño en perfecta armonía.</p>
+          <a class="hero-cta" href="#catalogo">Explorar colección <span aria-hidden="true">↘</span></a>
+          <div class="hero-note"><span class="note-line"></span> DISEÑO CON INTENCIÓN. HECHO PARA DURAR.</div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Interior cálido con piezas de diseño">
+          <div class="hero-art-photo"></div>
+          <div class="art-label"><span>01 / 03</span><span>CALMA NATURAL</span></div>
+          <span class="art-ring" aria-hidden="true"></span>
+        </div>
+        <div class="hero-index" aria-hidden="true">GM — 2025</div>
+      </section>
+
+      <section class="catalog-section" id="catalogo">
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow"><span></span> LA COLECCIÓN</p>
+            <h2>Piezas con <em>propósito.</em></h2>
+          </div>
+          <p class="section-caption">Diseño cuidadosamente seleccionado para<br>acompañarte todos los días.</p>
+        </div>
+        <div class="catalog-tools">
+          <div class="filter-list" id="filters" aria-label="Filtrar por tipo"></div>
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Buscar una pieza..." aria-label="Buscar una pieza">
+          </label>
+        </div>
+        <p class="result-meta" id="resultMeta" aria-live="polite"></p>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <span aria-hidden="true">⌕</span>
+          <h3>Aún no hay piezas por aquí.</h3>
+          <p>Prueba con otro término o explora una categoría diferente.</p>
+        </div>
+      </section>
+
+      <section class="brand-note">
+        <span class="brand-note-mark">g.</span>
+        <p>Creemos que el buen diseño no necesita llamar la atención.<br><em>Solo necesita hacerte sentir en casa.</em></p>
+        <a href="#catalogo" aria-label="Volver al catálogo">↑</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="/">gmobidec<span>.</span></a>
+      <p>Diseño para vivir mejor.</p>
+      <p>© <span id="year"></span> gMobidec</p>
+      <p class="connection-status" id="connectionStatus">Conectando catálogo...</p>
+    </footer>
+
+    <dialog class="admin-dialog" id="adminDialog" aria-label="Administración del catálogo gMobidec">
+      <div class="dialog-shell">
+        <div class="dialog-top">
+          <a class="brand dialog-brand" href="/" tabindex="-1">
+            <span class="brand-mark">g<span>.</span></span>
+            <span class="brand-name">mobidec<small>GESTIÓN DE CATÁLOGO</small></span>
+          </a>
+          <button class="icon-button" id="adminClose" type="button" aria-label="Cerrar">×</button>
+        </div>
+        <div class="admin-content">
+          <div id="loginPanel">
+            <p class="eyebrow"><span></span> ESPACIO PRIVADO</p>
+            <h2 id="adminTitle">Panel <em>admin.</em></h2>
+            <p class="dialog-description">Inicia sesión para gestionar las piezas de tu catálogo.</p>
+            <form id="loginForm" class="login-form">
+              <label for="adminPassword">Contraseña de administración</label>
+              <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+              <button class="primary-button" type="submit">Entrar al panel <span aria-hidden="true">→</span></button>
+              <p class="form-message" id="loginMessage" role="alert"></p>
+            </form>
+          </div>
+          <div id="dashboardPanel" hidden>
+            <div class="dashboard-heading">
+              <div><p class="eyebrow"><span></span> GESTIÓN DE PRODUCTOS</p><h2>Tu catálogo.</h2></div>
+              <button class="text-button" id="logoutButton" type="button">Cerrar sesión ↗</button>
+            </div>
+            <div class="dashboard-actions">
+              <p id="adminModeLabel"></p>
+              <button class="primary-button compact-button" id="addProductButton" type="button">+ Añadir pieza</button>
+            </div>
+            <div class="admin-products" id="adminProducts"></div>
+            <form class="product-form" id="productForm" hidden>
+              <div class="form-heading"><h3 id="productFormTitle">Añadir pieza</h3><button type="button" class="icon-button" id="cancelEdit" aria-label="Cancelar">×</button></div>
+              <input type="hidden" id="productId">
+              <div class="form-grid">
+                <label>Tipo<input name="tipo" required maxlength="80" placeholder="Sillas"></label>
+                <label>Diseño<input name="diseno" required maxlength="100" placeholder="Nórdico"></label>
+                <label class="wide-field">Modelo<input name="modelo" required maxlength="120" placeholder="Silla Lía"></label>
+                <label class="wide-field">Descripción<textarea name="descripcion" required maxlength="600" rows="3" placeholder="Describe la pieza..."></textarea></label>
+                <label>Precio Web<input name="precio" required type="number" min="0" step="1" placeholder="249900"></label>
+                <label>Foto 1 · URL HTTPS<input name="foto" type="url" placeholder="https://..." aria-describedby="photoHelp"><small class="field-help" id="photoHelp">Usa la URL HTTPS pública de la imagen.</small></label>
+              </div>
+              <p class="form-message" id="productMessage" role="alert"></p>
+              <div class="form-buttons"><button class="secondary-button" id="cancelEditSecondary" type="button">Cancelar</button><button class="primary-button" type="submit">Guardar cambios <span aria-hidden="true">→</span></button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
