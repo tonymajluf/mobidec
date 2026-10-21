@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: gmobidec
+    runtime: node
+    plan: free
+    buildCommand: npm run check
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: FM_BASE_URL
+        sync: false
+      - key: FM_DATABASE
+        value: gmobidec
+      - key: FM_LAYOUT
+        value: Catálogo web
+      - key: FM_USERNAME
+        sync: false
+      - key: FM_PASSWORD
+        sync: false
+      - key: FM_PHOTO_MODE
+        value: url
