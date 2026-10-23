@@ -11,16 +11,16 @@ services:
       - key: NODE_ENV
         value: production
       - key: ADMIN_PASSWORD
-        sync: false
+        sync: demos
       - key: FM_BASE_URL
-        sync: false
+        sync: tonymajluf.ddns.net/fmi/webd
       - key: FM_DATABASE
-        value: gmobidec
+        value: productos
       - key: FM_LAYOUT
-        value: Catálogo web
+        value: productos
       - key: FM_USERNAME
-        sync: false
+        sync: web
       - key: FM_PASSWORD
-        sync: false
+        sync: webcatalogo
       - key: FM_PHOTO_MODE
         value: container
