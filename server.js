@@ -68,7 +68,7 @@ function fileMakerConfig() {
       throw new Error(`FM_FIELDS_JSON necesita un nombre de campo para "${property}".`);
     }
   }
-  const photoMode = process.env.FM_PHOTO_MODE || "url";
+  const photoMode = process.env.FM_PHOTO_MODE || "container";
   if (!["url", "container"].includes(photoMode)) {
     throw new Error('FM_PHOTO_MODE debe ser "url" o "container".');
   }
