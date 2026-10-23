@@ -73,15 +73,15 @@ function fileMakerConfig() {
     throw new Error('FM_PHOTO_MODE debe ser "url" o "container".');
   }
 
-/  let baseUrl;
-/  try {
-/    baseUrl = new URL(process.env.FM_BASE_URL);
-/  } catch {
-/    throw new Error("FM_BASE_URL debe ser una URL HTTPS válida.");
-/  }
-/  if (baseUrl.protocol !== "https:" || baseUrl.username || baseUrl.password || baseUrl.search || baseUrl.hash) {
-/    throw new Error("FM_BASE_URL debe ser HTTPS y no incluir credenciales, parámetros ni fragmentos.");
-/  }
+  let baseUrl;
+  try {
+    baseUrl = new URL(process.env.FM_BASE_URL);
+  } catch {
+    throw new Error("FM_BASE_URL debe ser una URL HTTPS válida.");
+  }
+  if (baseUrl.protocol !== "https:" || baseUrl.username || baseUrl.password || baseUrl.search || baseUrl.hash) {
+    throw new Error("FM_BASE_URL debe ser HTTPS y no incluir credenciales, parámetros ni fragmentos.");
+  }
 
   return {
     baseUrl: process.env.FM_BASE_URL.replace(/\/+$/, ""),
